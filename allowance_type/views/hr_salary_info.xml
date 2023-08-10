@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_contract_form_inherit" model="ir.ui.view">
+        <field name="name">hr.contract.inherited</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='information']//group[@name='yearly_advantages']" position="after">
+                <group name="salary_allowance" string="Salary Allowance">
+                    <field name="value"/>
+                    <field name="value_type"/>
+                    <field name="allowance_id" widget="section_and_note_one2many">
+                        <form>
+                            <group>
+                                <group>
+                                    <field name="gas_allowance"/>
+                                    <field name="tips_allowance"/>
+                                </group>
+                                <group>
+                                    <field name="bonus_allowance"/>
+                                </group>
+                            </group>
+                        </form>
+                        <tree>
+                            <field name="bonus_allowance"/>
+                            <field name="gas_allowance"/>
+                            <field name="tips_allowance"/>
+                        </tree>
+                    </field>
+                    <field name="increase_type"/>
+                    <field name="salary_type" widget="many2many_tags"/>
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+
+
+</odoo>
